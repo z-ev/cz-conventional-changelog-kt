@@ -12,7 +12,7 @@ Status:
 
 Part of the [commitizen](https://github.com/commitizen/cz-cli) family. Prompts for [conventional changelog](https://github.com/conventional-changelog/conventional-changelog) standard.
 
-###install and use:
+### install and use:
 ```
 $ npm install -g commitizen
 
