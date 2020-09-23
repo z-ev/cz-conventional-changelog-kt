@@ -1,9 +1,37 @@
 'format cjs';
 
+const { exec } = require("child_process");
+const util = require('util');
+const execProm = util.promisify(exec);
+
 var wrap = require('word-wrap');
 var map = require('lodash.map');
 var longest = require('longest');
 var chalk = require('chalk');
+let defaultTaskName = "";
+
+async function git_shell() {
+  let result;
+  let command = "git branch | grep '*'"
+  try {
+    result = await execProm(command);
+  } catch(ex) {
+    result = ex;
+  }
+  if ( Error[Symbol.hasInstance](result) )
+    return ;
+
+  return result;
+}
+
+async function shell() {
+  let result =  await git_shell();
+  if (typeof result == "object" && typeof result.stdout != "undefined") {
+    defaultTaskName = result.stdout.split(" ")[1].replace("\n","").trim();
+  }
+}
+
+shell();
 
 var filter = function(array) {
   return array.filter(function(x) {
@@ -80,12 +108,7 @@ module.exports = function(options) {
           name: 'task_number',
           message:
             'CRM task number:',
-          default: options.defaultTask,
-          filter: function(value) {
-            return options.disableScopeLowerCase
-              ? value.trim()
-              : value.trim().toLowerCase();
-          }
+          default: defaultTaskName,
         },
         {
           type: 'input',
