@@ -1,7 +1,7 @@
 # cz-conventional-changelog для kt.team
-## Добавляен номер задачи к описанию коммита
+Добавлен номер задачи к описанию коммита.
 ```
-feat(scope):[001] add new commit example
+feat(scope): [001] add new commit example
 ```
 [![Greenkeeper badge](https://badges.greenkeeper.io/commitizen/cz-conventional-changelog.svg)](https://greenkeeper.io/)
 

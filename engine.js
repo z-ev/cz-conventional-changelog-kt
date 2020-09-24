@@ -235,7 +235,7 @@ module.exports = function(options) {
         var scope = answers.scope ? '(' + answers.scope + ')' : ' ';
 
         //kt task
-        var task_number = answers.task_number ? '[' + answers.task_number + '] ' : '';
+        var task_number = answers.task_number ? ' [' + answers.task_number + '] ' : '';
 
         // Hard limit this line in the validate
         var head = answers.type + scope + ':' + task_number + answers.subject;
