@@ -16,9 +16,11 @@ Part of the [commitizen](https://github.com/commitizen/cz-cli) family. Prompts f
 ```
 $ npm install -g commitizen
 
-$ git clone https://github.com/evgeniizab/cz-conventional-changelog-kt.git
+$ git clone https://github.com/evgeniizab/cz-conventional-changelog-kt.git 
 
-$ npm install -g cz-conventional-changelog-kt
+$ cd cz-conventional-changelog-kt && npm install
+
+$ npm link
 
 $ echo '{ "path": "cz-conventional-changelog-kt" }' > ~/.czrc
 ```
